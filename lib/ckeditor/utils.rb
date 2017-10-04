@@ -101,11 +101,7 @@ module Ckeditor
         files.inject([]) do |items, name|
           file = Pathname.new(name)
           base = file.basename('.*').to_s
-
-          if !name.include?('/lang/') || languages.include?(base) || languages.empty?
-            items << file.relative_path_from(relative_folder).to_s
-          end
-
+          items << file.relative_path_from(relative_folder).to_s
           items
         end
       end
